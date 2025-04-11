@@ -1,0 +1,17 @@
+.svg-eye-closed {
+    background: url('sprite-bef8f116.svg') 0 0 no-repeat;
+}
+
+.svg-eye-closed-dims {
+    width: 33px;
+    height: 9px;
+}
+
+.svg-eye-opened {
+    background: url('sprite-bef8f116.svg') 0 100% no-repeat;
+}
+
+.svg-eye-opened-dims {
+    width: 33px;
+    height: 16px;
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home work 11</title>
+</head>
+
+<body>
+  <main>
+
+    <h1 class="title">Home work 11</h1>
+
+    <div class="register">
+
+      <div class="register__wrapper">
+
+        <form class="register__form form" onsubmit="preventDefault();" novalidate>
+          <h2>Регистрация</h2>
+          <fieldset class="form__wrapper">
+            <label for="name" class="form__label">Имя пользователя:</label>
+            <input type="text" class="form__input input input--name" placeholder="Только буквы и цифры">
+            <span>Имя пользователя</span>
+          </fieldset>
+
+
+
+          <fieldset class="form__wrapper">
+            <label for="email" class="form__label">Email:</label>
+            <input type="email" class="form__input input input--email" placeholder="your@mail.com">
+            <span>email</span>
+          </fieldset>
+
+
+          <fieldset class="form__wrapper">
+            <label for="password" class="form__label">Пароль:</label>
+            <input id="password" type="password" class="form__input input input--password"
+              placeholder="Минимум 8 символов">
+            <input type="image" src="/images/eye-opened.svg">
+            <span>пароль</span>
+          </fieldset>
+
+
+          <fieldset class="form__wrapper">
+            <label for="password-repeat" class="form__label">Подтвердите пароль:</label>
+            <input id="password-repeat" type="password" class="form__input input input--password-repeat"
+              placeholder="Сначала введите пароль">
+            <input type="image" src="/images/eye-opened.svg">
+            <span>пароль</span>
+          </fieldset>
+
+
+
+          <fieldset class="form__wrapper">
+            <label for="terms">
+              Я согласен с
+              <a href="#">условиями пользования</a>
+            </label>
+            <input id="terms" type="checkbox" class="form__input input input--terms">
+            <span></span>
+          </fieldset>
+      </div>
+      </form>
+    </div>
+
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

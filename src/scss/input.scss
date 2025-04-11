@@ -1,0 +1,7 @@
+input {
+    flex-grow: 0;
+
+    &[type='image'] {
+        width: 32px;
+    }
+}
