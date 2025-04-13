@@ -1,0 +1,11 @@
+@keyframes error {
+    from {
+        transform: translateX(3px);
+    }
+    50% {
+        transform: translateX(-6px);
+    }
+    to {
+        transform: translateX(3px);
+    }
+}
