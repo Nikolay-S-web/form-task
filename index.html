@@ -2,71 +2,85 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home work 11</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home work 11</title>
 </head>
 
 <body>
-  <main>
-
-    <h1 class="title">Home work 11</h1>
 
     <div class="register">
 
-      <div class="register__wrapper">
+        <div class="register__wrapper">
 
-        <form class="register__form form" onsubmit="preventDefault();" novalidate>
-          <h2>Регистрация</h2>
-          <fieldset class="form__wrapper">
-            <label for="name" class="form__label">Имя пользователя:</label>
-            <input type="text" class="form__input input input--name" placeholder="Только буквы и цифры">
-            <span>Имя пользователя</span>
-          </fieldset>
+            <form class="register__form form" onsubmit="preventDefault();" novalidate>
+                <h1 class="form__title">Регистрация</h1>
 
-
-
-          <fieldset class="form__wrapper">
-            <label for="email" class="form__label">Email:</label>
-            <input type="email" class="form__input input input--email" placeholder="your@mail.com">
-            <span>email</span>
-          </fieldset>
-
-
-          <fieldset class="form__wrapper">
-            <label for="password" class="form__label">Пароль:</label>
-            <input id="password" type="password" class="form__input input input--password"
-              placeholder="Минимум 8 символов">
-            <input type="image" src="/images/eye-opened.svg">
-            <span>пароль</span>
-          </fieldset>
-
-
-          <fieldset class="form__wrapper">
-            <label for="password-repeat" class="form__label">Подтвердите пароль:</label>
-            <input id="password-repeat" type="password" class="form__input input input--password-repeat"
-              placeholder="Сначала введите пароль">
-            <input type="image" src="/images/eye-opened.svg">
-            <span>пароль</span>
-          </fieldset>
+                <div class="form__item form-item">
+                    <label for="name" class="form-item__label">Имя пользователя:</label>
+                    <input type="text" id="name" class="form-item__input input input--name"
+                        placeholder="Только буквы и цифры">
+                    <span class="form-item__error">Имя пользователя</span>
+                </div>
 
 
 
-          <fieldset class="form__wrapper">
-            <label for="terms">
-              Я согласен с
-              <a href="#">условиями пользования</a>
-            </label>
-            <input id="terms" type="checkbox" class="form__input input input--terms">
-            <span></span>
-          </fieldset>
-      </div>
-      </form>
+                <div class="form__item form-item">
+                    <label for="email" class="form-item__label">Email:</label>
+                    <input type="email" id="email" class="form-item__input input input--email"
+                        placeholder="your@mail.com">
+                    <span class="form-item__error">email</span>
+                </div>
+
+
+                <div class="form__item form-item">
+                    <label for="password" class="form-item__label">Пароль:</label>
+                    <fieldset class="form-item__password-set form-password-set">
+                        <input id="password" type="password" class="form-password-set__input input input--password"
+                            placeholder="Минимум 8 символов">
+                        <button class="form-password-set__button">
+                            <svg width="33px" height="16px" viewBox="0 9 33 16">
+                                <use xlink:href="/images/sprite-bef8f116.svg#eye-opened-wgmviibg"></use>
+                            </svg>
+                        </button>
+                    </fieldset>
+                    <span class="form-item__error">пароль</span>
+                </div>
+
+
+                <div class="form__item form-item">
+                    <label for="password-repeat" class="form-item__label">Подтвердите пароль:</label>
+                    <fieldset class="form-item__password-set form-password-set">
+                        <input id="password-repeat" type="password"
+                            class="form-password-set__input input input--password-repeat"
+                            placeholder="Сначала введите пароль">
+                        <button class="form-password-set__button">
+                            <svg width="33px" height="16px" viewBox="0 9 33 16">
+                                <use xlink:href="/images/sprite-bef8f116.svg#eye-opened-wgmviibg"></use>
+                            </svg>
+                        </button>
+                    </fieldset>
+                    <span class="form-item__error">пароль</span>
+                </div>
+
+
+
+                <div class="form__item form-item form-item--terms">
+                    <label for="terms" class="form-item__label form-item__label--terms">
+                        Я согласен с
+                        <a class="link" href="#">условиями пользования</a>
+                    </label>
+                    <input id="terms" type="checkbox" class="form-item__input input input--checkbox">
+                    <span class="form-item__error"></span>
+                </div>
+
+                <button class="form__submit" type="submit">Зарегистрироваться</button>
+        </div>
+        </form>
     </div>
 
-  </main>
 
-  <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,51 @@
+.input {
+    font-family: inherit;
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin: 0;
+    transition: 0.3s;
+    &:focus {
+        outline: none;
+    }
+    &--name,
+    &--email {
+        padding: 0 0 0 5px;
+        border-radius: 5px;
+        border: 1.5px solid rgb(123, 123, 123);
+        &:hover,
+        &:focus {
+            border-color: black;
+            box-shadow: 0 0 4px rgb(102, 102, 102);
+        }
+    }
+    &--password,
+    &--password-repeat {
+        padding: 0 0 0 5px;
+        border: none;
+        background-color: transparent;
+        &:focus,
+        &:hover {
+            outline: none;
+        }
+    }
+    &--checkbox {
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        &,
+        &:focus {
+            outline: 1px solid rgb(123, 123, 123);
+            outline-offset: 2px;
+        }
+        &:checked {
+            background-color: rgb(123, 123, 123);
+        }
+    }
+
+    // &--password-show {
+    //     width: 16px;
+    //     flex: 0 0 auto;
+    // }
+}
