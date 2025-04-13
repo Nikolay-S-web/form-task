@@ -35,8 +35,12 @@
             bottom: 0;
             right: 0;
             color: red;
-            transition: opacity 0.2s;
+            transition: 0.2s;
+            &.active {
+                opacity: 1;
+            }
         }
+
         &__password-set {
             width: 100%;
             padding: 5px;
@@ -102,7 +106,7 @@
         transition: 0.3s;
         &:hover {
             background-color: red;
-            & .valid {
+            &.valid {
                 background-color: rgba(75, 101, 218, 0.615);
             }
         }

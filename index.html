@@ -13,14 +13,14 @@
 
         <div class="register__wrapper">
 
-            <form class="register__form form" onsubmit="preventDefault();" novalidate>
+            <form id="form" class="register__form form" novalidate>
                 <h1 class="form__title">Регистрация</h1>
 
                 <div class="form__item form-item">
                     <label for="name" class="form-item__label">Имя пользователя:</label>
                     <input type="text" id="name" class="form-item__input input input--name"
                         placeholder="Только буквы и цифры">
-                    <span class="form-item__error">Имя пользователя</span>
+                    <span id="name-error" class="form-item__error">Имя пользователя</span>
                 </div>
 
 
@@ -35,7 +35,7 @@
 
                 <div class="form__item form-item">
                     <label for="password" class="form-item__label">Пароль:</label>
-                    <fieldset class="form-item__password-set form-password-set">
+                    <fieldset id="password-set" class="form-item__password-set form-password-set">
                         <input id="password" type="password" class="form-password-set__input input input--password"
                             placeholder="Минимум 8 символов">
                         <button class="form-password-set__button">
@@ -50,7 +50,7 @@
 
                 <div class="form__item form-item">
                     <label for="password-repeat" class="form-item__label">Подтвердите пароль:</label>
-                    <fieldset class="form-item__password-set form-password-set">
+                    <fieldset id="password-repeat-set" class="form-item__password-set form-password-set">
                         <input id="password-repeat" type="password"
                             class="form-password-set__input input input--password-repeat"
                             placeholder="Сначала введите пароль">
@@ -74,7 +74,7 @@
                     <span class="form-item__error"></span>
                 </div>
 
-                <button class="form__submit" type="submit">Зарегистрироваться</button>
+                <button id="submit-button" class="form__submit" type="submit-button">Зарегистрироваться</button>
                 <p class="form__notice">test</p>
         </div>
         </form>
