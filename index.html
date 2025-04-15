@@ -20,7 +20,7 @@
                     <label for="name" class="form-item__label">Имя пользователя:</label>
                     <input type="text" id="name" class="form-item__input input input--name"
                         placeholder="Только буквы и цифры">
-                    <span id="name-error" class="form-item__error">Имя пользователя</span>
+                    <span class="form-item__error">Не менее 3х символов</span>
                 </div>
 
 
@@ -35,10 +35,10 @@
 
                 <div class="form__item form-item">
                     <label for="password" class="form-item__label">Пароль:</label>
-                    <fieldset id="password-set" class="form-item__password-set form-password-set">
+                    <fieldset class="form-item__password-set form-password-set">
                         <input id="password" type="password" class="form-password-set__input input input--password"
-                            placeholder="Минимум 8 символов">
-                        <button class="form-password-set__button">
+                            placeholder="Минимум 8 символов" autocomplete="">
+                        <button class="form-password-set__button" title="Показать пароль">
                             <svg width="33px" height="16px" viewBox="0 9 33 16">
                                 <use xlink:href="/images/sprite-bef8f116.svg#eye-opened-wgmviibg"></use>
                             </svg>
@@ -50,11 +50,11 @@
 
                 <div class="form__item form-item">
                     <label for="password-repeat" class="form-item__label">Подтвердите пароль:</label>
-                    <fieldset id="password-repeat-set" class="form-item__password-set form-password-set">
+                    <fieldset class="form-item__password-set form-password-set">
                         <input id="password-repeat" type="password"
-                            class="form-password-set__input input input--password-repeat"
-                            placeholder="Сначала введите пароль">
-                        <button class="form-password-set__button">
+                            class="form-password-set__input input input--password" placeholder="Сначала введите пароль"
+                            autocomplete="">
+                        <button class="form-password-set__button" title="Показать пароль">
                             <svg width="33px" height="16px" viewBox="0 9 33 16">
                                 <use xlink:href="/images/sprite-bef8f116.svg#eye-opened-wgmviibg"></use>
                             </svg>
@@ -75,7 +75,8 @@
                 </div>
 
                 <button id="submit-button" class="form__submit" type="submit-button">Зарегистрироваться</button>
-                <p class="form__notice">test</p>
+                <p class="form__notice">Для регистрации заполните все поля
+                    формы</p>
         </div>
         </form>
     </div>
