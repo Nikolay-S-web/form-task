@@ -1,6 +1,6 @@
 import {
     passwordField,
-    passwordField_Value,
+    passwordField_getValue,
     passwordField_Set,
     passwordField_Error,
     passwordField_ParentItem,
@@ -13,7 +13,7 @@ import { disablePasswordRepeat } from './input--password-repeat';
 export let isPasswordValid;
 
 export function validatePassword() {
-    if (passwordField_Value === '') {
+    if (passwordField_getValue() === '') {
         passwordField_Error.innerText = 'Пароль обязателен!';
         passwordField_Error.classList.add('active');
         passwordField_Set.classList.add('error');
@@ -21,7 +21,7 @@ export function validatePassword() {
         disablePasswordRepeat(isPasswordValid);
         return false;
     }
-    if (passwordField_Value.length < 8) {
+    if (passwordField_getValue().length < 8) {
         passwordField_Error.innerText = 'Пароль должен быть не менее 8 символов!';
         passwordField_Error.classList.add('active');
         passwordField_Set.classList.add('error');
@@ -44,10 +44,12 @@ passwordField.addEventListener('focus', () => {
 let delay;
 
 passwordField.addEventListener('input', () => {
+    passwordField_Set.classList.remove('error');
+
     // if (!isPasswordRepeatDisabled) {
     //     passwordRepeatValidation();
     // }
-    if (!passwordField_Value || passwordField_Value.length < 8) {
+    if (!passwordField_getValue() || passwordField_getValue().length < 8) {
         isPasswordValid = false;
     } else {
         isPasswordValid = true;

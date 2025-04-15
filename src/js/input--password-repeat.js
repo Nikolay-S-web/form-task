@@ -2,9 +2,9 @@ import { resetFieldsError } from './form';
 
 import {
     passwordField,
-    passwordField_Value,
+    passwordField_getValue,
     passwordRepeatField,
-    passwordRepeatField_Value,
+    passwordRepeatField_getValue,
     passwordRepeatField_Set,
     passwordRepeatField_Error,
     passwordRepeatField_ParentItem,
@@ -15,20 +15,20 @@ export let isPasswordRepeatDisabled;
 export function disablePasswordRepeat(isValid) {
     if (isValid) {
         passwordRepeatField.removeAttribute('disabled');
-        passwordRepeatField_ParentItem.classList.remove('disabled');
+        passwordRepeatField_Set.classList.remove('disabled');
         isPasswordRepeatDisabled = false;
         return;
     }
     passwordRepeatField.setAttribute('disabled', '');
-    passwordRepeatField_ParentItem.classList.add('disabled');
-    passwordRepeatField_ParentItem.classList.remove('error');
+    passwordRepeatField_Set.classList.add('disabled');
+    passwordRepeatField_Set.classList.remove('error');
     isPasswordRepeatDisabled = true;
 }
 
 let delay;
 
 export function ValidatePasswordRepeat() {
-    if (passwordRepeatField_Value !== passwordField_Value) {
+    if (passwordRepeatField_getValue() !== passwordField_getValue()) {
         passwordRepeatField_Error.innerText = 'Пароли не совпадают!';
         passwordRepeatField_Error.classList.add('active');
         passwordRepeatField_Set.classList.add('error');
@@ -41,7 +41,7 @@ export function ValidatePasswordRepeat() {
 
 passwordRepeatField.addEventListener('input', () => {
     passwordRepeatField_Error.classList.remove('active');
-    passwordRepeatField.closest('.form-password-set').classList.remove('error');
+    passwordRepeatField_Set.classList.remove('error');
 
     function setDelay() {
         clearTimeout(delay);

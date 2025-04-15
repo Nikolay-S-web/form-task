@@ -1,14 +1,19 @@
 import { resetFieldsError } from './form';
 
-import { emailField, emailField_Value, emailField_ParentItem, emailField_Error } from './variables';
+import {
+    emailField,
+    emailField_getValue,
+    emailField_ParentItem,
+    emailField_Error,
+} from './variables';
 
 export function validateEmail() {
-    if (!emailField_Value) {
+    if (!emailField_getValue()) {
         emailField.classList.add('error');
         emailField_Error.innerText = 'Email обязателен!';
         emailField_Error.classList.add('active');
         return false;
-    } else if (emailField_Value.length < 4) {
+    } else if (emailField_getValue().length < 4) {
         emailField.classList.add('error');
 
         emailField_Error.innerText = 'Введен некоректный email!';
@@ -16,10 +21,10 @@ export function validateEmail() {
         return false;
     }
 
-    const atIndex = emailField_Value.indexOf('@');
-    const dotIndex = emailField_Value.lastIndexOf('.');
+    const atIndex = emailField_getValue().indexOf('@');
+    const dotIndex = emailField_getValue().lastIndexOf('.');
 
-    if (atIndex <= 0 || dotIndex < atIndex + 2 || dotIndex === emailField_Value.length - 1) {
+    if (atIndex <= 0 || dotIndex < atIndex + 2 || dotIndex === emailField_getValue().length - 1) {
         emailField.classList.add('error');
         emailField_Error.innerText = 'Введен некоректный email!';
         emailField_Error.classList.add('active');
