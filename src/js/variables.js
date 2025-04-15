@@ -32,5 +32,14 @@ export const passwordRepeatField_Set = passwordRepeatField.closest('.form-passwo
 export const passwordRepeatField_Error =
     passwordRepeatField_ParentItem.querySelector('.form-item__error');
 
+// Поле checkbox согласия с условиями
+export const termsCheckbox = document.getElementById('terms');
+export const termsCheckbox_checkValue = () => termsCheckbox.checked;
+export const termsCheckbox_ParentItem = termsCheckbox.closest('.form-item');
+export const termsCheckbox_Error = termsCheckbox.querySelector('.form-item__error');
+
+// Сеты полей password и button-show
 export const password_Sets = document.querySelectorAll('.form-password-set');
+
+// Кнопки показа пароля
 export const password_ShowButtons = document.querySelectorAll('.form-password-set__button');

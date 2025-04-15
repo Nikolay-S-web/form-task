@@ -34,10 +34,14 @@
             position: absolute;
             bottom: 0;
             right: 0;
+            color: transparent;
             transition: 0.2s;
             &.active {
                 opacity: 1;
                 color: red;
+            }
+            &.notice {
+                opacity: 1;
             }
         }
 

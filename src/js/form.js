@@ -9,7 +9,7 @@ import {
     passwordRepeatField_ParentItem,
 } from './variables';
 
-import { validateName } from './input--name';
+import { validate_nameField } from './input--name';
 import { disablePasswordRepeat } from './input--password-repeat';
 
 const terms = document.getElementById('terms');
@@ -31,7 +31,7 @@ export function resetFieldsError(field) {
 function validateForm(event) {
     event.preventDefault();
 
-    if (validateName()) {
+    if (validate_nameField()) {
         form_SubmitButton.classList.add('is_valid');
     }
 }
