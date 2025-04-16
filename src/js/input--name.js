@@ -2,6 +2,8 @@ import { resetFieldsError } from './form';
 
 import { nameField, nameField_getValue, nameField_Error, nameField_Regex } from './variables';
 
+let isNameValid;
+
 function setError_nameField(errorMessage) {
     nameField.classList.add('error');
     nameField_Error.innerText = errorMessage;
@@ -39,12 +41,12 @@ nameField.addEventListener('input', () => {
         function setDelay() {
             clearTimeout(delay);
             delay = setTimeout(() => {
-                validate_nameField();
+                isNameValid = validate_nameField();
             }, 2000);
         }
         setDelay();
     } else {
-        validate_nameField();
+        isNameValid = validate_nameField();
     }
 });
 

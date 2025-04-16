@@ -9,7 +9,7 @@ export const nameField_getValue = () => nameField.value;
 export const nameField_ParentItem = nameField.closest('.form-item');
 export const nameField_Error = nameField_ParentItem.querySelector('.form-item__error');
 
-export const nameField_Regex = /^[a-zA-Z0-9а-яА-Я]+$/;
+export const nameField_Regex = /^[a-zA-Zа-яА-Я0-9]+$/;
 
 // Поле ввода email
 export const emailField = document.getElementById('email');
@@ -23,6 +23,8 @@ export const passwordField_getValue = () => passwordField.value;
 export const passwordField_ParentItem = passwordField.closest('.form-item');
 export const passwordField_Set = passwordField.closest('.form-password-set');
 export const passwordField_Error = passwordField_ParentItem.querySelector('.form-item__error');
+
+// export const passwordField_Notice = passwordField_ParentItem.querySelector('.notice');
 
 // Поле поверждения password-repeat
 export const passwordRepeatField = document.getElementById('password-repeat');
