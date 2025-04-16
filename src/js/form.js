@@ -10,6 +10,11 @@ import {
     passwordRepeatField_ParentItem,
     nameField_getValue,
     passwordField_getValue,
+    emailField_getValue,
+    passwordRepeatField_getValue,
+    termsCheckbox_checkOn,
+    passwordField_Set,
+    passwordRepeatField_Set,
 } from './variables';
 
 import { validate_nameField } from './input--name';
@@ -32,25 +37,34 @@ export function resetFieldsError(field = null) {
     form_Notice.classList.remove('active');
 }
 
-let isNameValid;
-let isEmailValid;
-let isPasswordValid;
-let isPasswordRepeatValid;
-let isTermsChecked;
+function resetError_UnfilledFields() {
+    if (!nameField_getValue()) resetFieldsError(nameField);
+    if (!emailField_getValue()) resetFieldsError(emailField);
+    if (!passwordField_getValue()) resetFieldsError(passwordField_Set);
+    if (!passwordRepeatField_getValue()) resetFieldsError(passwordRepeatField_Set);
+}
+
+function showNotice_form() {
+    form_Notice.classList.add('active');
+}
+
+function hideNotice_form() {
+    form_Notice.classList.remove('active');
+}
 
 function validateForm() {
-    isNameValid = validate_nameField();
-    isEmailValid = validate_emailField();
-    isPasswordValid = validatePassword();
-    isPasswordRepeatValid = ValidatePasswordRepeat();
-    isTermsChecked = validateTermsCheckbox();
+    const isNameValid = validate_nameField();
+    const isEmailValid = validate_emailField();
+    const isPasswordValid = validatePassword();
+    const isPasswordRepeatValid = ValidatePasswordRepeat();
+    const isTermsChecked = validateTermsCheckbox();
 
     if (isNameValid & isEmailValid & isPasswordValid & isPasswordRepeatValid & isTermsChecked) {
         form_SubmitButton.classList.add('is_valid');
-        return false;
+        return true;
     } else {
         form_SubmitButton.classList.remove('is_valid');
-        return true;
+        return false;
     }
 }
 
@@ -58,12 +72,13 @@ let isFormValid;
 
 form_SubmitButton.addEventListener('mouseover', () => {
     isFormValid = validateForm();
+    if (!isFormValid) showNotice_form();
 });
 
 form_SubmitButton.addEventListener('mouseleave', () => {
-    if (isFormValid) {
-        resetFieldsError();
-        return;
+    if (!isFormValid) {
+        resetError_UnfilledFields();
+        hideNotice_form();
     }
 });
 

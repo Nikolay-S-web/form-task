@@ -1,6 +1,5 @@
 import './style.scss';
 import './js/variables';
-import './js/submitButton';
 import './js/show-button';
 import './js/input--name';
 import './js/input--email';

@@ -1,0 +1,59 @@
+.success {
+    opacity: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgb(123, 123, 123);
+    border-radius: 10px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+    transition: 0.5s;
+    &.active {
+        opacity: 1;
+    }
+    &.hidden {
+        display: none;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: 24px;
+    }
+    &__text {
+        margin: 5px 0;
+        font-size: 16px;
+    }
+    &__button {
+        padding: 10px;
+        text-transform: uppercase;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: rgba(75, 101, 218, 0.615);
+        }
+
+        &--show-password {
+            font-size: 10px;
+            padding: 5px;
+            margin: 10px 0;
+        }
+        &--repeat {
+            padding: 10px;
+            margin-top: 20px;
+        }
+    }
+}
+
+.usser-info {
+    font-size: 16px;
+    color: black;
+    &--password {
+        background-color: transparent;
+        border: none;
+    }
+}

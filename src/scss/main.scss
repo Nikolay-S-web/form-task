@@ -17,9 +17,13 @@ body {
     justify-content: center;
     align-items: center;
 
+    &__wrapper {
+        width: 400px;
+    }
+
     &__form {
         flex: 0 0 auto;
-        width: 400px;
+        width: 100%;
     }
 }
 

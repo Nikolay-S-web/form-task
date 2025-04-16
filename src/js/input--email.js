@@ -40,7 +40,7 @@ export function validate_emailField() {
 }
 
 emailField.addEventListener('click', () => {
-    resetFieldsError(emailField);
+    remmoveError_emailField();
 });
 
 emailField.addEventListener('blur', validate_emailField);

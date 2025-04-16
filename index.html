@@ -71,8 +71,18 @@
 
                 <button id="submit-button" class="form__submit" type="submit-button">Зарегистрироваться</button>
                 <span class="form__notice">Для регистрации заполните все поля формы</span>
+            </form>
+
+            <div class="success">
+                <p class="success__title">Регистрация прошла успешно!</p>
+                <p class="success__text">Приветствуем Вас, <span class="usser-info usser-info--name"></span>!</p>
+                <p class="success__text">Ваш email: <span class="usser-info usser-info--email"></span></p>
+                <p class="success__text">Ваш пароль: <input type="password" class="usser-info usser-info--password" disabled></input></p>
+                <button class="success__button success__button--show-password">показать пароль</button>
+                <p class="success__text">Надёжность пароля: <span class="usser-info usser-info--password-difficulty"></span></p>
+                <button class="success__button success__button--repeat">Попробовать еще раз!</button>
+            </div>
         </div>
-        </form>
     </div>
 
 
