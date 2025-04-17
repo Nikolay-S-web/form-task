@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home work 11</title>
+  <script type="module" crossorigin src="/assets/index-CqR7UKFU.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-UYxk1d1u.css">
+</head>
+
+<body>
+
+    <div class="register">
+
+        <div class="register__wrapper">
+
+            <form id="form" class="register__form form" novalidate>
+                <h1 class="form__title">Регистрация</h1>
+
+                <div class="form__item form-item">
+                    <label for="name" class="form-item__label">Имя пользователя:</label>
+                    <input type="text" id="name" class="form-item__input input input--name" placeholder="Только буквы и цифры">
+                    <span class="form-item__error">Не менее 3х символов</span>
+                </div>
+
+
+
+                <div class="form__item form-item">
+                    <label for="email" class="form-item__label">Email:</label>
+                    <input type="email" id="email" class="form-item__input input input--email" placeholder="your@mail.com">
+                    <span class="form-item__error">email</span>
+                </div>
+
+
+                <div class="form__item form-item">
+                    <label for="password" class="form-item__label">Пароль:</label>
+                    <fieldset class="form-item__password-set form-password-set">
+                        <input id="password" type="password" class="form-password-set__input input input--password" placeholder="Минимум 8 символов" autocomplete="">
+                        <button class="form-password-set__button" title="Показать пароль">
+                            <svg width="33px" height="16px" viewBox="0 9 33 16">
+                                <use xlink:href="/images/sprite-bef8f116.svg#eye-opened-wgmviibg"></use>
+                            </svg>
+                        </button>
+                    </fieldset>
+                    <span class="form-item__error">пароль</span>
+                </div>
+
+
+                <div class="form__item form-item">
+                    <label for="password-repeat" class="form-item__label">Подтвердите пароль:</label>
+                    <fieldset class="form-item__password-set form-password-set">
+                        <input id="password-repeat" type="password" class="form-password-set__input input input--password" placeholder="Сначала введите пароль" autocomplete="">
+                        <button class="form-password-set__button" title="Показать пароль">
+                            <svg width="33px" height="16px" viewBox="0 9 33 16">
+                                <use xlink:href="/images/sprite-bef8f116.svg#eye-opened-wgmviibg"></use>
+                            </svg>
+                        </button>
+                    </fieldset>
+                    <span class="form-item__error">пароль</span>
+                </div>
+
+
+
+                <div class="form__item form-item form-item--terms">
+                    <label for="terms" class="form-item__label form-item__label--terms">
+                        Я согласен с
+                        <a class="link" href="#">условиями&nbsp;пользования</a>
+                    </label>
+                    <input id="terms" type="checkbox" class="form-item__input input input--checkbox">
+                    <span class="form-item__error">Подтвердите согласие!</span>
+                </div>
+                <button class="form__reset button" type="reset">Очистить форму</button>
+                <button id="submit-button" class="form__submit button" type="submit-button">Зарегистрироваться</button>
+                <span class="form__notice">Для регистрации заполните все поля формы</span>
+            </form>
+
+            <div class="success">
+                <p class="success__title">Регистрация прошла успешно!</p>
+                <p class="success__text success__text--greet">Приветствуем Вас, <span class="usser-info usser-info--name"></span>!</p>
+                <p class="success__text">Ваш email: <span class="usser-info usser-info--email"></span></p>
+                <p class="success__text">Ваш пароль: <input type="password" class="usser-info usser-info--password" disabled></input></p>
+                <span class="usser-info usser-info--password-difficulty"></span>
+                <button class="success__button button success__button--show-password">показать пароль</button>
+                <button class="success__button button success__button--repeat">Попробовать еще раз!</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
