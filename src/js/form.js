@@ -1,47 +1,39 @@
 import {
-    nameField,
-    emailField,
-    password_Sets,
-    passwordField,
-    passwordRepeatField,
     form,
-    form_SubmitButton,
     form_Notice,
-    passwordRepeatField_ParentItem,
+    nameField,
     nameField_getValue,
-    passwordField_getValue,
+    emailField,
     emailField_getValue,
-    passwordRepeatField_getValue,
-    termsCheckbox_checkOn,
+    passwordField,
     passwordField_Set,
+    passwordField_getValue,
+    passwordRepeatField,
     passwordRepeatField_Set,
+    passwordRepeatField_getValue,
+    termsCheckbox,
+    form_ResetButton,
+    form_SubmitButton,
 } from './variables';
 
+import { setDefaultPasswordType } from './show-button';
 import { validate_nameField } from './input--name';
-import { togglePasswordRepeat, ValidatePasswordRepeat } from './input--password-repeat';
+import { ValidatePasswordRepeat } from './input--password-repeat';
 import { validatePassword } from './input--password';
 import { validate_emailField } from './input--email';
 import { validateTermsCheckbox } from './input--terms';
+import { removeAllFormFieldsErrors, showSucces } from './register';
 
-export function resetFieldsError(field = null) {
-    if (field) {
-        field.classList.remove('error');
-        return;
-    }
-    nameField.classList.remove('error');
-    emailField.classList.remove('error');
-    password_Sets.forEach((passwordSet) => {
-        passwordSet.classList.remove('error');
-    });
-
-    form_Notice.classList.remove('active');
+export function removeFieldError(field) {
+    field.classList.remove('error');
 }
 
 function resetError_UnfilledFields() {
-    if (!nameField_getValue()) resetFieldsError(nameField);
-    if (!emailField_getValue()) resetFieldsError(emailField);
-    if (!passwordField_getValue()) resetFieldsError(passwordField_Set);
-    if (!passwordRepeatField_getValue()) resetFieldsError(passwordRepeatField_Set);
+    if (!nameField_getValue()) removeFieldError(nameField);
+    if (!emailField_getValue()) removeFieldError(emailField);
+    if (!passwordField_getValue()) removeFieldError(passwordField_Set);
+    if (!passwordRepeatField_getValue()) removeFieldError(passwordRepeatField_Set);
+    removeFieldError(termsCheckbox);
 }
 
 function showNotice_form() {
@@ -68,6 +60,16 @@ function validateForm() {
     }
 }
 
+function hideAllPasswords() {
+    setDefaultPasswordType(passwordField);
+    setDefaultPasswordType(passwordRepeatField);
+}
+
+form_ResetButton.addEventListener('click', () => {
+    hideAllPasswords();
+    removeAllFormFieldsErrors();
+});
+
 let isFormValid;
 
 form_SubmitButton.addEventListener('mouseover', () => {
@@ -82,9 +84,12 @@ form_SubmitButton.addEventListener('mouseleave', () => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    resetFieldsError();
-    togglePasswordRepeat();
-});
+function formSubmitHandler(event) {
+    event.preventDefault();
 
-form.addEventListener('submit', (event) => event.preventDefault());
+    if (isFormValid) {
+        showSucces();
+    }
+}
+
+form.addEventListener('submit', formSubmitHandler);

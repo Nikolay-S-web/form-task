@@ -1,5 +1,3 @@
-import { resetFieldsError } from './form';
-
 import { nameField, nameField_getValue, nameField_Error, nameField_Regex } from './variables';
 
 function setError_nameField(errorMessage) {
@@ -8,7 +6,7 @@ function setError_nameField(errorMessage) {
     nameField_Error.classList.add('active');
 }
 
-function remmoveError_nameField() {
+export function remmoveError_nameField() {
     nameField.classList.remove('error');
     nameField_Error.classList.remove('active');
 }

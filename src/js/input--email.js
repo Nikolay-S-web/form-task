@@ -1,5 +1,3 @@
-import { resetFieldsError } from './form';
-
 import { emailField, emailField_getValue, emailField_Error } from './variables';
 
 function setError_nameField(errorMessage) {
@@ -7,7 +5,7 @@ function setError_nameField(errorMessage) {
     emailField_Error.innerText = errorMessage;
     emailField_Error.classList.add('active');
 }
-function remmoveError_emailField() {
+export function remmoveError_emailField() {
     emailField.classList.remove('error');
     emailField_Error.classList.remove('active');
 }

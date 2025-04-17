@@ -15,7 +15,7 @@
         display: none;
     }
     &__title {
-        font-size: 30px;
+        font-size: 1.9rem;
         text-align: center;
         margin: 20px 0;
     }
@@ -41,7 +41,7 @@
         // &__input {
         // }
         &__error {
-            font-size: 0.8em;
+            font-size: 0.8rem;
             opacity: 0;
             position: absolute;
             bottom: 0;
@@ -112,6 +112,19 @@
             }
         }
     }
+    &__reset {
+        width: 100%;
+        padding: 10px;
+        text-transform: uppercase;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-bottom: 10px;
+        &:hover {
+            background-color: rgba(75, 101, 218, 0.615);
+        }
+    }
     &__submit {
         width: 100%;
         padding: 10px;
@@ -140,4 +153,8 @@
             opacity: 1;
         }
     }
+}
+
+.button {
+    font-size: 0.85rem;
 }

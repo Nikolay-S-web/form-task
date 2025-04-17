@@ -8,6 +8,7 @@ import {
 } from './variables';
 
 import { remmoveError_passwordRepeatField, togglePasswordRepeat } from './input--password-repeat';
+import { setDefaultPasswordType } from './show-button';
 
 let isPasswordValid;
 
@@ -17,14 +18,14 @@ function setError_passwordField(errorMessage) {
     passwordField_Error.style.color = 'red';
     passwordField_Error.classList.add('active');
 }
-function remmoveError_passwordField() {
+
+export function remmoveError_passwordField() {
     passwordField_Set.classList.remove('error');
     passwordField_Error.classList.remove('active');
 }
 
-function checkPasswordDifficulty(passwordField_Value) {
-    const hard =
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[а-я])(?=.*[А-Я])(?=.*\d)(?=.*[_@$!%*?&#^()-+]).{10,}$/;
+export function checkPasswordDifficulty(passwordField_Value) {
+    const hard = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[а-я])(?=.*[А-Я])(?=.*\d)(?=.*[_@$!%*?&#^()-+]).{10,}$/;
     const difficult = /^(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ])(?=.*\d)(?=.*[_@$!%*?&#^()-+]).{10,}$/;
     const medium = /^(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ])(?=.*\d)(?=.*[_@$!%*?&#^()-+]).{8,}$/;
     const simple = /^(?=.*[a-zа-яё])(?=.*[A-ZА-ЯЁ])(?=.*\d).{8,}$/;
@@ -42,34 +43,61 @@ function checkPasswordDifficulty(passwordField_Value) {
     }
 }
 
-function addPasswordDifficultyNotice(passwordDifficulty) {
-    let noticeMessage;
-    let color;
-    passwordField_Error.classList.add('notice');
+export function setPasswordDifficultyMessage(passwordDifficulty) {
+    let message;
     switch (passwordDifficulty) {
         case 4:
-            noticeMessage = 'Отличный пароль';
+            message = 'Отличный пароль';
+            break;
+        case 3:
+            message = 'Надёжный пароль';
+            break;
+        case 2:
+            message = 'Средняя надежность пароля';
+            break;
+        case 1:
+            message = 'Низкая надежность пароля';
+            break;
+        case 0:
+            message = 'Ненадёжный пароль';
+            break;
+    }
+    return message;
+}
+
+export function setPasswordDifficultyColor(passwordDifficulty) {
+    let color;
+    switch (passwordDifficulty) {
+        case 4:
             color = 'green';
             break;
         case 3:
-            noticeMessage = 'Надёжный пароль';
             color = 'green';
             break;
         case 2:
-            noticeMessage = 'Средняя надежность пароля';
             color = 'orange';
             break;
         case 1:
-            noticeMessage = 'Низкая надежность пароля';
             color = 'rgb(255, 80, 80)';
             break;
         case 0:
-            noticeMessage = 'Ненадёжный пароль';
-            color = 'red';
+            color = 'rgb(220 48 48)';
             break;
     }
+    return color;
+}
+
+function addPasswordDifficultyNotice(passwordDifficulty) {
+    passwordField_Error.classList.add('notice');
+    let noticeMessage = setPasswordDifficultyMessage(passwordDifficulty);
+    let color = setPasswordDifficultyColor(passwordDifficulty);
     passwordField_Error.style.color = color;
+    console.log('one');
     passwordField_Error.innerText = noticeMessage;
+}
+
+export function removePasswordDifficultyNotice() {
+    passwordField_Error.classList.remove('notice');
 }
 
 export function validatePassword() {
@@ -122,4 +150,7 @@ passwordField.addEventListener('input', () => {
     setDelay();
 });
 
-passwordField.addEventListener('blur', validatePassword);
+passwordField.addEventListener('blur', () => {
+    setDefaultPasswordType(passwordField);
+    validatePassword();
+});

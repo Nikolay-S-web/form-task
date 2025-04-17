@@ -2,6 +2,12 @@
     box-sizing: border-box;
 }
 
+:root {
+    --font-size: 1em;
+    --containerwidth: 400px;
+    font-size: var(--font-size);
+}
+
 body {
     height: 100dvh;
     margin: 0;
@@ -18,7 +24,8 @@ body {
     align-items: center;
 
     &__wrapper {
-        width: 400px;
+        width: var(--containerwidth);
+        min-width: 300px;
     }
 
     &__form {
@@ -30,4 +37,11 @@ body {
 .link {
     color: darkcyan;
     text-decoration: none;
+}
+
+@media screen and (max-width: 425px) {
+    :root {
+        --containerwidth: 95%;
+        --font-size: 0.8rem;
+    }
 }

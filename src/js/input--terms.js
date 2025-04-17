@@ -4,7 +4,7 @@ function setError_TermsCheckbox() {
     termsCheckbox.classList.add('error');
     termsCheckbox_Error.classList.add('active');
 }
-function removeError_TermsCheckbox() {
+export function removeError_TermsCheckbox() {
     termsCheckbox.classList.remove('error');
     termsCheckbox_Error.classList.remove('active');
 }

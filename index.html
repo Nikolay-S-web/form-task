@@ -9,7 +9,7 @@
 
 <body>
 
-    <div class="register test">
+    <div class="register">
 
         <div class="register__wrapper">
 
@@ -63,24 +63,24 @@
                 <div class="form__item form-item form-item--terms">
                     <label for="terms" class="form-item__label form-item__label--terms">
                         Я согласен с
-                        <a class="link" href="#">условиями пользования</a>
+                        <a class="link" href="#">условиями&nbsp;пользования</a>
                     </label>
                     <input id="terms" type="checkbox" class="form-item__input input input--checkbox">
                     <span class="form-item__error">Подтвердите согласие!</span>
                 </div>
-
-                <button id="submit-button" class="form__submit" type="submit-button">Зарегистрироваться</button>
+                <button class="form__reset button" type="reset">Очистить форму</button>
+                <button id="submit-button" class="form__submit button" type="submit-button">Зарегистрироваться</button>
                 <span class="form__notice">Для регистрации заполните все поля формы</span>
             </form>
 
             <div class="success">
                 <p class="success__title">Регистрация прошла успешно!</p>
-                <p class="success__text">Приветствуем Вас, <span class="usser-info usser-info--name"></span>!</p>
+                <p class="success__text success__text--greet">Приветствуем Вас, <span class="usser-info usser-info--name"></span>!</p>
                 <p class="success__text">Ваш email: <span class="usser-info usser-info--email"></span></p>
                 <p class="success__text">Ваш пароль: <input type="password" class="usser-info usser-info--password" disabled></input></p>
-                <button class="success__button success__button--show-password">показать пароль</button>
-                <p class="success__text">Надёжность пароля: <span class="usser-info usser-info--password-difficulty"></span></p>
-                <button class="success__button success__button--repeat">Попробовать еще раз!</button>
+                <span class="usser-info usser-info--password-difficulty"></span>
+                <button class="success__button button success__button--show-password">показать пароль</button>
+                <button class="success__button button success__button--repeat">Попробовать еще раз!</button>
             </div>
         </div>
     </div>

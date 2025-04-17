@@ -1,5 +1,4 @@
-import { resetFieldsError } from './form';
-
+import { setDefaultPasswordType } from './show-button';
 import {
     passwordField,
     passwordField_getValue,
@@ -46,6 +45,10 @@ export function togglePasswordRepeat(isValid = false) {
 let delay;
 
 export function ValidatePasswordRepeat() {
+    if (!passwordRepeatField_getValue()) {
+        setError_passwordRepeatField('Повторите пароль!');
+        return false;
+    }
     if (passwordRepeatField_getValue() !== passwordField_getValue()) {
         setError_passwordRepeatField('Пароли не совпадают!');
         return false;
@@ -71,5 +74,6 @@ passwordRepeatField.addEventListener('input', () => {
 });
 
 passwordRepeatField.addEventListener('blur', () => {
+    setDefaultPasswordType(passwordRepeatField);
     ValidatePasswordRepeat();
 });
